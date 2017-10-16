@@ -1,0 +1,28 @@
+.tb {
+	width: 900px;
+	height: 600px;
+	border: 1px solid silver;
+}
+
+.td_left {
+	width: 200px;
+	background-color: #CCCCCC;
+}
+
+.td_left_last {
+	width: 200px;
+	height: 200px;
+	background-color: #CCCCCC ;
+}
+
+._input {
+	width: 200px;
+}
+
+select {
+	width: 210px;
+}
+
+td {
+	border-bottom: 1px solid silver;
+}

@@ -1,0 +1,19 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+table {
+	width: 70%;
+	margin: 0px auto;
+	border-bottom: 1px dotted darkgray;
+}
+
+td{
+	border-bottom: 1px dotted darkgray;
+}
+
+input {
+	height: 30px;
+	color: white;
+	background-color: #6fb3e0;
+}
