@@ -1,0 +1,24 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+table {
+	width: 600px;
+	border: 1px solid darkgray;
+	margin-left: 25px;
+}
+
+ td{
+	border-bottom: 1px dotted darkgray;
+}
+
+.addC {
+	margin-top:25px;
+	margin-bottom: 15px;
+	margin-left: 25px;
+	width: 70px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid darkgray;
+	background: white;
+}
