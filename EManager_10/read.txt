@@ -14,3 +14,5 @@ ERP项目
 	3.重构规格表   修改表结构 修改dao jsp等代码
 	version - 09
 	1.修改增加商品   增加规格 ajax
+	version - 10
+	1.utils 线程共享出现问题  注释掉

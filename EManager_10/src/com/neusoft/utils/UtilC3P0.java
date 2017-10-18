@@ -5,13 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.commons.dbutils.DbUtils;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class UtilC3P0 {
 	private static ComboPooledDataSource ds = null;
 	//线程局部变量
-	private static ThreadLocal<Connection> connectionHolder = new ThreadLocal<Connection>();
+	//private static ThreadLocal<Connection> connectionHolder = new ThreadLocal<Connection>();
 	
 	static{
 		try{
@@ -22,7 +23,7 @@ public class UtilC3P0 {
 	}
 	//得到连接
 	public static Connection getConnection() throws SQLException{
-		Connection conn = connectionHolder.get(); 
+		/*Connection conn = connectionHolder.get(); 
 		if(conn!=null){
 			return conn;
 		}else{
@@ -30,7 +31,8 @@ public class UtilC3P0 {
 			//把得到的数据库连接设置到线程里
 			connectionHolder.set(conn);
 			return conn;
-		}	
+		}	*/
+		return ds.getConnection();
 	}
 	
 	
@@ -58,7 +60,7 @@ public class UtilC3P0 {
 	public static void close(Connection conn){
 		if(null != conn){
 				//把关闭的数据库连接从线程中移除
-				connectionHolder.remove();
+				//connectionHolder.remove();
 		}
 	}
 	
