@@ -36,12 +36,51 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
      				</button>
-						<a class="navbar-brand" href="#">只买电脑~~</a>
+						<a class="navbar-brand" href="#">只卖电脑~~</a>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li onclick="login(this)">
-								<a>${user.loginname==null?"登陆":user.loginname }</a>
+							<li>
+								<a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+								${user.loginname==null?"登陆":user.loginname }
+								</a>
+								
+								<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">登陆</h4>
+					</div>
+					<div class="modal-body">
+
+						<form name="loginForm" action="acccsmlogin" method="post">
+							<input type="hidden" name="command" value="login" />
+							<div class="form-group">
+								<label for="exampleInputEmail1">用户名:</label>
+								<input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">密码:</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="密码">
+							</div>
+							<div class="checkbox">
+								<label>
+      							<input name="autologin" type="checkbox" value="1"> 7天免登陆
+  							</label>
+							</div>
+						</form>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" onclick="login()"  class="btn btn-primary">登陆</button>
+					</div>
+				</div>
+			</div>
+		</div>
+								
 							</li>
 							<li onclick="register(this)">
 								<a>${user.loginname==null?"注册":"管理" }</a>
@@ -59,6 +98,10 @@
 					</div>
 				</div>
 			</nav>
+			
+			
+			
+			
 
 			<!--轮播-->
 
@@ -165,6 +208,28 @@
 			var iframe = document.getElementById("iframe");
 			iframe.setAttribute("src", "buy.jsp");
 		}
+		
+		function login() {
+			var user = document.getElementById("username");
+			var psw = document.getElementById("password");
+			
+			
+			if(user.value.length == 0) {
+				alert("用户名不能为空!");
+				return;
+			}
+			
+			if(psw.value.length == 0) {
+				alert("密码不能为空!");
+				return;
+			}
+			
+			loginForm.submit();
+			
+			
+		}
+		
+		
 	</script>
 
 </html>
