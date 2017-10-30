@@ -1,0 +1,47 @@
+第一步：添加用户
+
+命令：
+
+#adduser tom    <!--此处以用户tom为例-->
+
+第二步：修改密码
+
+命令：
+
+#passwd tom
+
+根据提示输入两次密码，完成密码设置。
+
+第三步：设置用户权限
+
+  方法一：修改 /etc/sudoers 文件（推荐方法）
+
+    命令：
+
+    #visudo    <!--找到下面一行，并在其后新增一行，如下所示：-->
+
+    ## Allow root to run any commands anywhere
+    root    ALL=(ALL)     ALL
+    tom    ALL=(ALL)     ALL    <!--新增行-->
+
+    保存退出，使用tom登录，然后使用sudo su - 或 sudo 命令，输入tom的密码，即可获得root权限执行该命令；使用exit退出root用户模式。
+
+  方法二：将用户添加至root组
+
+    命令：
+
+    #usermod -g root tom
+
+    使用su - 即可获得root权限；使用exit退出root用户模式。
+
+  方法三：修改 /etc/passwd 文件，找到如下行，将用户ID更改为0
+
+    tom:x:1000:1000::/home/tom:/bin/bash
+
+    更改为：
+
+    tom:x:0:0::/home/tom:/bin/bash
+
+
+
+方法三 好用

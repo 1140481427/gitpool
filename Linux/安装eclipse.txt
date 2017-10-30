@@ -1,0 +1,13 @@
+安装步骤：
+（1）在Windows系统中从上述地址下载最新版Eclipse安装包，该包为64位Linux压缩包。
+（2）用WinSCP工具将Eclipse压缩包从Windows系统传入CentOS系统/opt目录下。
+（3）在/opt目录下将该包解压缩：
+[root@centos7 ~]# cd /opt
+[root@centos7 opt]# ls
+eclipse-jee-neon-1a-linux-gtk-x86_64.tar.gz  rh
+[root@centos7 opt]# tar -zxvf eclipse-jee-neon-1a-linux-gtk-x86_64.tar.gz
+[root@centos7 opt]# ls
+eclipse  eclipse-jee-neon-1a-linux-gtk-x86_64.tar.gz  rh
+（4）在/usr/bin目录为该Eclipse创建软链接：
+[root@centos7 opt]# ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+（5）将该软链接（相当于Windows中的快捷方式）复制到桌面，即可从桌面启动Eclipse。

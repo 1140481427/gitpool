@@ -1,0 +1,46 @@
+1.先停掉原来的服务
+
+service mysqld stop
+ 
+
+2.使用安全模式登陆，跳过密码验证
+
+mysqld_safe --user=mysql --skip-grant-tables --skip-networking&
+ 
+
+3.登陆
+
+mysql -uroot  mysql
+ 
+
+4.修改密码
+
+mysql  > update user set authentication_string = password('123456') 
+       where user = 'root' and Host = 'localhost'
+ 
+
+5.刷新权限
+
+mysql > flush privileges;
+ 
+
+6.重新使用正常模式登陆
+
+#mysql -uroot -p
+#enter password : 123456
+ 
+
+可以正常登陆。
+
+7.执行其他命令：show databases; 提示如下错误
+
+You must reset your password using ALTER USER statement 
+                before   executing this statement.
+ 
+
+8.重新将密码设置一遍即可
+
+mysql > set password = password ('123456');
+ 
+
+9.配置完成
